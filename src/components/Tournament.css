@@ -1,0 +1,21 @@
+.tournament {
+  float: left;
+  width: 344px;
+  height: 180px;
+  background-color: #333;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  padding-left: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+
+.tournament:nth-child(3n) {
+  margin-right: 0;
+}
+
+.tournament button {
+  margin-right: 10px;
+  margin-top: 20px;
+  float: left;
+}
