@@ -9,6 +9,7 @@ import TournamentInterface from '../interfaces/Tournament.interface';
 
 const tournamentService: TournamentsService = new TournamentsService();
 
+// map datafrom api to tournament custom interface
 const mapDataToTournament = (data: any): TournamentInterface[] => {
   data.map((tournament: any) => {
     return {

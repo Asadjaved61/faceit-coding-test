@@ -22,13 +22,14 @@ const Tournaments = () => {
   }, []);
 
   const onSearch = (e: any): void => {
+    // convert user input to lowercase for comparison
     const name: string = e.target.value.toLowerCase();
     let tournaments: TournamentInterface[] = data.tournaments;
-
+    // filter tournaments based on user input
     tournaments = tournaments.filter((tournament: any) =>
       tournament.name.toLowerCase().includes(name)
     );
-
+    // dispatch search tournament action
     dispatch({
       type: 'SEARCH_TOURNAMENT',
       payload: tournaments
@@ -37,9 +38,11 @@ const Tournaments = () => {
 
   const onCreateTournament = (): void => {
     const tournamentName: string | null = prompt('Tournament Name:');
+    // if empty then return
     if (!tournamentName) {
       return;
     }
+    // disptach tournament with user input to create new  tournament
     dispatch(createTournament(data.tournaments, tournamentName));
   };
 
@@ -53,6 +56,7 @@ const Tournaments = () => {
 
     let tournaments: TournamentInterface[] = data.tournaments;
     const index: number = tournaments.indexOf(tournament);
+    // delete the tournament using index number
     tournaments.splice(index, 1);
 
     dispatch(deleteTournament(tournaments, tournament));
@@ -66,6 +70,7 @@ const Tournaments = () => {
     if (!editedName || editedName === tournament.name) {
       return;
     }
+    // find the tournament and edit the name with user input
     let tournaments = data.tournaments;
     tournaments.find(
       (tour: any) => tour.id === tournament.id
