@@ -15,6 +15,7 @@ const createTournamentRequest = () => {
 };
 
 const createTournamentSuccess = (newTournament: any, tournaments: any) => {
+  // add new tournament to existing tournament array
   tournaments.unshift(newTournament);
   return {
     type: CREATE_TOURNAMENT_SUCCESS,
